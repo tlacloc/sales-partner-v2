@@ -1,0 +1,4 @@
+Cosas faltantes por hacer en la aplicación
+{
+	
+}
