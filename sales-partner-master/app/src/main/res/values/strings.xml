@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">sales-partner</string>
+
+    <string-array name="spiiner">
+        <item>
+            1
+        </item>
+        <item>
+            2
+        </item>
+        <item>
+            3
+        </item>
+
+    </string-array>
+
+    <!-- Opciones del menú contextual para la pestaña Clientes -->
+    <string name="action_details">Detalles</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_delete">Eliminar</string>
+
+    <!-- Opciones del menú contextual para la pestaña Ordenes -->
+    <string name="action_ordetails">Detalles</string>
+    <string name="action_oredit">Editar orden</string>
+    <string name="action_oravan">Avanzar estado a</string>
+    <string name="action_orregre">Regresar estado a</string>
+
+    <!-- Opciones del menú contextual para las pestañas auxiliares -->
+    <string name="action_auxdelete">Eliminar</string>
+
+    <!-- Opciones del menú contextual para la pestaña auxiliar de agregar ensamble -->
+    <string name="action_auxdetails">Detalles</string>
+    <string name="action_auxadd">Agregar</string>
+
+    <!-- KEYS -->
+    <string name="CUSTOMER_ADD_SAVED">com.example.sales_partner.CUSTOMER_ADD_SAVED</string>
+</resources>

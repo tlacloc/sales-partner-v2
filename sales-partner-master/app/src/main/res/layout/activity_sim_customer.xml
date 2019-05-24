@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".reports.SimCustomerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Layout para el date search -->
+
+        <LinearLayout
+            android:id="@+id/dateSelectorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <LinearLayout
+                android:id="@+id/startDateLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="22sp"
+                    android:layout_weight="1"
+                    android:text="Fecha Inicial"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/editTextOrdersStartDateSim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="YYYY-MM-DD"
+                    android:inputType="date" />
+
+                <Button
+                    android:id="@+id/btnOrdersStartDateSim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ver en calendario"
+                    android:layout_weight="1"
+                    android:onClick="showStartDatePickerDialog"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/endDateLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="22sp"
+                    android:layout_weight="1"
+                    android:text="Fecha Inicial"
+                    android:gravity="center"/>
+
+                <EditText
+                    android:id="@+id/editTextOrdersEndDateSim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="YYYY-MM-DD"
+                    android:inputType="date" />
+
+                <Button
+                    android:id="@+id/btnOrdersEndDateSim"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ver en calendario"
+                    android:layout_weight="1"
+                    android:onClick="showDatePickerDialog"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Buscar"></Button>
+        </LinearLayout>
+    <!-- Layout para el price search -->
+        <LinearLayout
+            android:id="@+id/priceSelectorLayout"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Monto maximo"/>
+
+                <EditText
+                    android:id="@+id/txtEditEndPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Monto mínimo"/>
+
+                <EditText
+                    android:id="@+id/txtEditStartPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"/>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_price"
+                android:text="Buscar"/>
+
+        </LinearLayout>
+
+        <!-- Layout para el customer search -->
+
+        <Spinner
+            android:id="@+id/sprCustomerSim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"></Spinner>
+
+
+        <Button
+            android:id="@+id/btnProcessSim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Procesar Orden"></Button>
+
+
+
+        <ListView
+            android:id="@+id/lvOrdersSim"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

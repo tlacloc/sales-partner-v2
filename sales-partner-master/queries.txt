@@ -1,0 +1,143 @@
+//////////////
+SELECT 
+id,
+customerName,
+status,
+date,
+assemblies_qty as assemblies,
+SUM(subtotal) as price
+FROM
+(
+SELECT 
+orders.id AS id,
+customers.id AS customerId,
+customers.first_name as customerName,
+orders.date as date,
+order_status.description as status,
+order_assemblies.assembly_id as assembly_id,
+SUM(order_assemblies.qty) as assemblies_qty,
+assembly_products.qty as assembly_products_qty,
+products.id as product_id,
+products.description as product,
+products.price as product_price,
+SUM(assembly_products.qty*products.price*order_assemblies.qty) as subtotal
+FROM orders 
+INNER JOIN customers ON customers.id = orders.customer_id
+INNER JOIN order_status ON order_status.id = orders.status_id
+INNER JOIN order_assemblies ON order_assemblies.id = orders.id
+INNER JOIN assembly_products ON assembly_products.id = order_assemblies.assembly_id
+INNER JOIN products ON products.id = assembly_products.product_id
+GROUP BY orders.id, order_assemblies.assembly_id, products.id
+)
+GROUP BY id
+
+
+///////////////
+Query Joins y agrupado en diferentes campos
+
+SELECT 
+orders.id AS id,
+customers.id AS customerId,
+customers.first_name as customerName,
+order_status.description as status,
+order_assemblies.assembly_id as assembly_id,
+SUM(order_assemblies.qty) as assamblies_qty,
+assembly_products.qty as assembly_products_qty,
+products.id as product_id,
+products.description as product,
+products.price as product_price,
+SUM(assembly_products.qty*products.price*order_assemblies.qty) as subtotal
+FROM orders 
+INNER JOIN customers ON customers.id = orders.customer_id
+INNER JOIN order_status ON order_status.id = orders.status_id
+INNER JOIN order_assemblies ON order_assemblies.id = orders.id
+INNER JOIN assembly_products ON assembly_products.id = order_assemblies.assembly_id
+INNER JOIN products ON products.id = assembly_products.product_id
+WHERE customers.id = 0
+GROUP BY orders.id, order_assemblies.assembly_id, products.id
+
+
+//////// Trae productos del mismo assembly
+
+SELECT  products.*, assembly_products.id FROM products 
+INNER JOIN assembly_products ON assembly_products.product_id = products.id
+WHERE assembly_products.id = 1
+ORDER BY description ASC
+
+////////////
+SELECT tassemblies.id,
+       tassemblies.description,
+            COUNT(assemblies.id) as numProducts,
+            "SUM(products.price) as price
+            FROM assemblies
+            "INNER JOIN assembly_products ON assembly_products.id = assemblies.id
+            "INNER JOIN products ON products.id = assembly_products.product_id
+            "WHERE assemblies.description LIKE :desc
+            "GROUP BY assemblies.id
+            "ORDER BY assemblies.description ASC"
+
+            SELECT 
+            assemblies.id,
+            assemblies.description,
+            COUNT(assemblies.id) as numProducts,
+            SUM(products.price) as price
+            FROM assemblies 
+            INNER JOIN assembly_products ON assembly_products.id = assemblies.id
+            INNER JOIN products ON products.id = assembly_products.product_id
+            WHERE assemblies.description LIKE
+
+
+///////
+SELECT 
+orders.id,
+customers.first_name,
+order_status.description as status,
+orders.date ,
+order_assemblies.qty, 
+orders.change_log, 
+order_assemblies.assembly_id,
+assemblies.description
+FROM orders 
+INNER JOIN customers ON customers.id = orders.customer_id
+INNER JOIN order_assemblies ON order_assemblies.id = orders.id
+INNER JOIN order_status ON order_status.id = orders.status_id
+INNER JOIN assemblies ON assemblies.id = order_assemblies.assembly_id
+WHERE orders.customer_id = 1
+ORDER BY date
+
+
+
+//////////// PRODUCT QUANTITIES ORDERS PENDIENTES
+SELECT
+orders.id as orderId,
+orders.status_id as statusId,
+orders.customer_id as customerId,
+order_assemblies.assembly_id as assembly_id,
+order_assemblies.qty as assembliesQty,
+assembly_products.product_id as productId,
+assembly_products.qty as productQtyPerAssembly,
+SUM(order_assemblies.qty*assembly_products.qty) as pendingProductsQty,
+products.qty as stockProductsQty,
+products.description as productDescription,
+SUM(products.qty - order_assemblies.qty*assembly_products.qty) as diffProductsQty
+FROM orders
+INNER JOIN order_assemblies ON order_assemblies.id = orders.id
+INNER JOIN assembly_products ON assembly_products.id = order_assemblies.assembly_id
+INNER JOIN products ON products.id = product_id
+WHERE status_id=0 AND orders.id=7
+GROUP BY productId
+HAVING diffProductsQty < 0
+
+/////// Query ganancias
+SELECT 
+orders.*,
+products.*,
+order_assemblies.id as assembly_id,
+strftime("%m-%Y", date) as month_year,
+COUNT(products.price) as sales,
+SUM(products.price) as income
+FROM orders
+INNER JOIN order_assemblies ON order_assemblies.id = orders.id
+INNER JOIN assembly_products ON assembly_products.id = order_assemblies.assembly_id
+INNER JOIN products ON products.id = product_id
+group by strftime("%m-%Y", date);

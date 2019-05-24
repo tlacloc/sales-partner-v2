@@ -1,0 +1,296 @@
+PENDIENTES POR PANTALLAS
+
+PANTALLA PRINCIPAL: CREATE ACTIVITY [DONE]
+
+>remplazar los dummyes por imagenes correctas
+
+Formada por cinco botones tipo ImageButton
+
+	>cada uno de las cuales abrirá una pantalla secundaria. [DONE]
+{
+	>Productos [DONE]
+	>Ensambles [DONE]
+	>Clientes [DONE]
+	>Órdenes [DONE]
+	>Reportes [DONE]
+}
+
+En modo portrait los botones tendrán una configuración de 3 filas x 2 columnas. En modo landscape
+los botones tendrán una configuración de 2 filas x 3 columnas [DONE]
+
+
+PRODUCTOS: CREATE ACTIVITY [DONE]
+{
+
+	Incluye un Spinner para especificar un filtrado por categoría, debe incluir la opción Todas. [DONE]
+
+	Incluye un EditText para especificar un filtrado por texto. [DONE]
+
+		>Si no se incluye un texto se considera que no se realizará el filtrado por texto. [DONE]
+
+	Incluye un ActionItem en el ToolBar con la imagen de una lupa para realizar la búsqueda. [DONE]
+
+		> La lista de productos sólo será actualizada al presionar este botón. [DONE]
+
+	Incluye una lista de productos tipo RecyclerView 
+
+		>mostrando su información básica (descripción truncada, precio, cantidad en stock); [DONE]
+
+		>esta lista deberá estar ordenada alfabéticamente por descripción. [DONE]
+
+		>Al hacer click sobre un producto se mostrará su información a detalle (categoría, descripción, precio, [DONE]
+		cantidad en stock) en una pantalla auxiliar o diálogo. [DONE]
+
+El modo landscape de esta pantalla es de diseño libre.
+}
+ENSAMBLES: CREATE ACTIVITY [DONE]
+{		
+	Incluye un EditText para especificar un filtrado por texto.  [DONE]
+	
+		>Si no se incluye un texto se considera que no se realizará el filtrado por texto. [DONE]
+	
+	Incluye un ActionItem en el ToolBar con la imagen de una lupa para realizar la búsqueda. [DONE]
+	
+		>La lista de ensambles sólo será actualizada al presionar este botón. [DONE]
+	
+	Incluye una lista de ensambles tipo RecyclerView  [DONE]
+	
+		>mostrando su información básica (descripción truncada, número de productos, costo total del ensamble) [DONE]
+	
+		>esta lista deberá estar ordenada alfabéticamente por descripción. [DONE]
+	
+		>Al hacer click sobre un ensamble se mostrará su información a detalle (descripción, lista de productos 
+		RecyclerView con cantidades requeridas, costo total del ensamble) en una pantalla auxiliar. [DONE]
+	
+		> Al hacer click sobre un producto se mostrará su información a detalle (categoría, descripción, precio,
+		cantidad en stock) en una pantalla auxiliar o diálogo.
+	
+	El modo landscape de esta pantalla es de diseño libre.	
+}	
+CLIENTES: CREATE ACTIVITY [DONE]
+{	
+	Incluye un ActionItem “+” para agregar un nuevo cliente en una pantalla auxiliar (1). [DONE]
+	
+	Incluye un Spinner tipo Checkbox para especificar un filtrado por nombre, apellido, dirección, telé-
+	fono o e-mail de los clientes. [DONE]
+	
+	Incluye un EditText para especificar un filtrado por texto. Si no se incluye un texto se considera que
+	no se realizará el filtrado por texto. [DONE]
+	
+	Incluye un ActionItem en el ToolBar con la imagen de una lupa para realizar la búsqueda. 
+		>La lista de clientes sólo será actualizada al presionar este botón. [DONE]
+	
+	Incluye una lista de clientes tipo RecyclerView  [DONE]
+		
+		>mostrando su información básica (apellido, nombre, un teléfono y el e-mail, éstos últimos si 
+		los especifica); [DONE]
+	
+		>esta lista deberá estar ordenada alfabéticamente por apellido, nombre. [DONE] 
+	
+		>Al hacer long click sobre un cliente se mostrará un menú contextual con las opciones: [DONE]
+			detalles, 
+			editar 
+			y eliminar.
+	
+	▪ Detalles. Se mostrará un diálogo auxiliar con la información completa del cliente. [DONE]
+	
+	▪ Editar. Pantalla auxiliar (2). [DONE]
+	
+	▪ Eliminar. Se mostrará un diálogo de confirmación y un mensaje que indique el éxito de la
+	operación. Esta opción no aparecerá si el cliente ya se encuentra asignado a una orden.[DONE
+
+	El modo landscape de esta pantalla es de diseño libre. 
+
+	
+PANTALLAS AUXILIARES
+
+	AGREGAR UN NUEVO CLIENTE [DONE]
+	
+	EDITAR UN CLIENTE [DONE]
+		Incluye un EditText para agregar el nombre. Debe existir una validación del texto.
+	
+		Incluye un EditText para agregar el apellido. Debe existir una validación del texto.
+	
+		Incluye un EditText para agregar la dirección. Debe existir una validación del texto.
+	
+		Incluye un EditText para agregar el teléfono 1. Debe existir una validación del texto. El teléfono 1
+		es información de contacto obligatoria.
+	
+		Incluye un CheckBox para habilitar la entrada del teléfono 2. Si este CheckBox está seleccionado se
+		obligará y validará la entrada del teléfono 2. [DONE]
+	
+		Incluye un EditText para agregar el teléfono 2. Debe existir una validación del texto. 
+	
+		Incluye un CheckBox para habilitar la entrada del teléfono 3. Si este CheckBox está seleccionado se
+		obligará y validará la entrada del teléfono 3. [DONE]
+	
+		Incluye un EditText para agregar el teléfono 3. Debe existir una validación del texto.
+	
+		Incluye un CheckBox para habilitar la entrada del e-mail. Si este CheckBox está seleccionado se obli-
+		gará y validará la entrada del e-mail. [DONE]
+	
+		Incluye un EditText para agregar el e-mail. Debe existir una validación del texto. 
+	
+		Incluye un ActionItem para Guardar. Se mostrará un mensaje que indique el éxito de la operación. Si
+		se intenta regresar por medio del botón back sin haber guardado, se solicitará una confirmación y se
+		informará que los datos no guardados se perderán.
+}	
+ORDENES: CREATE ACTIVITY [DONE]
+{
+	Incluye un ActionItem “+” para agregar una nueva orden en una pantalla auxiliar (1). 
+	
+	Incluye un Spinner tipo Checkbox para especificar un filtrado por estado de las órdenes. [DONE]
+	
+	Incluye un Spinner para especificar un filtrado por cliente, debe incluir la opción Todos. [DONE]
+	
+	Incluye una pareja Checkbox/DatePicker para habilitar/seleccionar una fecha inicial de filtrado. [DONE]
+	
+	Incluye una pareja Checkbox/DatePicker para habilitar/seleccionar una fecha final de filtrado. [DONE]
+	
+	Incluye un ActionItem en el ToolBar con la imagen de una lupa para realizar la búsqueda. La lista de
+	órdenes sólo será actualizada al presionar este botón. [DONE]
+	
+	Incluye una lista de órdenes tipo RecyclerView 
+		>mostrando su información básica (cliente, estado, fecha, cantidad de ensambles, costo total); [DONE]
+		>esta lista deberá estar ordenada por fecha de manera descendente. [DONE]
+		>Al hacer un long click sobre una orden se mostrará un menú contextual con las opciones: [DONE]
+			detalles, [DONE]
+			regresar/avanzar estado a  [DONE]
+			y editar orden.
+	
+	▪ Detalles. Se mostrará una pantalla auxiliar con la información completa de la orden, inclu-
+	yendo cuáles ensambles se solicitaron así como sus cantidades y costos; también se mostra-
+	rá el registro completo de cambios. [DONE]
+	
+	▪ Regresar estado a ... Cuando se pueda regresar el estado de una orden a un valor anterior se
+	mostrará esta opción. Mediante un diálogo auxiliar se solicitarán comentarios acerca del
+	cambio y se documentará en la base de datos.
+	
+	▪ Avanzar estado a ... Cuando se pueda avanzar el estado de una orden a un valor siguiente se
+	mostrará esta opción. Mediante un diálogo auxiliar se solicitarán comentarios acerca del
+	cambio y se documentará en la base de datos. [DONE]
+	
+	▪ Editar orden. Pantalla auxiliar (2). Esta opción sólo se mostrará para órdenes editables.
+	En modo portrait el orden vertical de los controles es el especificado. En modo landscape deberá
+	ajustarse la lista de órdenes para implementar en dos columnas.
+
+	PANTALLA AUXILIAR 
+	
+		AGREGAR NUEVA ORDEN
+
+	Incluye un ActionItem “+” para agregar un nuevo ensamble en una pantalla auxiliar (3).
+	
+	Incluye un Spinner para seleccionar al cliente.
+	
+	Incluye una lista de ensambles tipo RecyclerView 
+	
+		>mostrando su información básica (descripción truncada, número de productos, costo total del ensamble); 
+	
+		>esta lista deberá estar ordenada alfabéticamente por descripción. 
+	
+		>Se incluye un NumberPicker que permitirá especificar la cantidad de ensambles. 
+	
+		>La cantidad mínima por especificar es 1. 
+	
+		>Al hacer un long click sobre un ensamble se mostrará un menú contextual con la opción: 
+		eliminar.
+	
+	▪ Eliminar. Se mostrará un diálogo de confirmación y un mensaje que indique el éxito de la
+	operación. Se eliminará el elemento de la lista de ensambles.
+	
+	Incluye un ActionItem para Guardar. 
+		> Esta pantalla sólo permite guardar una vez la orden, después de
+	hacerlo la ventana se cerrará; por lo mismo deberá mostrar un diálogo de advertencia solicitando
+	confirmación. 
+	
+		>Al guardar la orden se almacenará la fecha actual y se asignará el estado pendiente. 
+	
+		>Se mostrará un mensaje que indique el éxito de la operación. 
+	
+		>Si se intenta regresar por medio del botón back sin haber guardado, se solicitará una 
+		confirmación y se informará que los datos no guardados se perderán.
+	
+	En modo portrait el orden vertical de los controles es el especificado. 
+	
+		> En modo landscape deberá ajustarse la lista de ensambles para implementar en dos columnas.
+	
+	EDITAR ORDEN
+	
+		Incluye un ActionItem “+” para agregar un nuevo ensamble en una pantalla auxiliar (3).
+	
+		Incluye un TextView para mostrar al cliente. No será posible cambiar este dato.
+		
+		Incluye una lista de ensambles tipo RecyclerView 
+	
+			>mostrando su información básica (descripción truncada, número de productos, costo total del ensamble); 
+	
+			>esta lista deberá estar ordenada alfabéticamente por descripción. 
+		
+			>Se incluye un NumberPicker que permitirá especificar la cantidad de ensambles. 
+	
+			>La cantidad mínima por especificar es 1. Al hacer un long click sobre un ensamble se mostrará un menú 
+			contextual con la opción: 
+			eliminar.
+	
+	▪ Eliminar. Se mostrará un diálogo de confirmación y un mensaje que indique el éxito de la
+	operación. Se eliminará el elemento de la lista de ensambles.
+	Incluye un ActionItem para Guardar. Se mostrará un mensaje que indique el éxito de la operación. Si
+	se intenta regresar por medio del botón back sin haber guardado, se solicitará una confirmación y se
+	informará que los datos no guardados se perderán.
+	En modo portrait el orden vertical de los controles es el especificado. En modo landscape deberá
+	ajustarse la lista de ensambles para implementar en dos columnas
+	
+	AGREGAR ENSAMBLE
+	
+	Incluye un EditText para especificar un filtrado por texto. Si no se incluye un texto se considera que
+	no se realizará el filtrado por texto.
+	
+	Incluye un ActionItem en el ToolBar con la imagen de una lupa para realizar la búsqueda. La lista de
+	ensambles sólo será actualizada al presionar este botón.
+	
+	Incluye una lista de ensambles tipo RecyclerView mostrando su información básica (descripción
+	truncada, número de productos, costo total del ensamble); esta lista deberá estar ordenada alfabéti-
+	camente por descripción. Al hacer un long click sobre un ensamble se mostrará un menú contextual
+	con las opciones: detalles y agregar.
+	
+	▪ Detalles. Se mostrará su información a detalle (descripción, lista de productos RecyclerView
+	con cantidades requeridas, costo total del ensamble) en una pantalla auxiliar. Al hacer click
+	sobre un producto se mostrará su información a detalle (categoría, descripción, precio,
+	cantidad en stock) en una pantalla auxiliar o diálogo.
+	
+	▪ Agregar. Se mostrará un diálogo de confirmación y un mensaje que indique el éxito de la
+	operación. Se retornará automáticamente a la pantalla anterior y el ensamble será agregado
+	a la lista de ensambles.
+			
+}	
+	REPORTEVISTA: CREATE ACTIVITY [DONE]
+{	
+	Formada por tres botones tipo ImageButton, cada uno de las cuales abrirá una pantalla secundaria.
+	
+	PANTALLAS SECUNDARIAS
+	
+	1. Productos faltantes. Reporte de todos los productos faltantes para poder confirmar todas
+	las órdenes.
+	
+	
+	2. Simulador de confirmación de órdenes. Debe ofrecer 3 opciones: 
+	a) procesar por cliente, //get all de todos los clientes
+	b) procesar por fecha,  //fechas 
+	c) procesar por monto de venta. //
+		>Debe ofrecer como resultado una lista de órdenes para las cuales se simula su confirmación
+		y el correspondiente retiro de producto del almacén. Cada orden al ser procesada será marcada
+		con un color específico	para indicar que: 
+			a) puede ser confirmado, 
+			b) existe algún producto faltante, 
+			c) no existe disponible producto para su confirmación.
+		Al hacer click sobre la orden deberá mostrar un detalle del resultado.
+	
+	3. Resumen de ventas por mes. 
+		> Debe calcular el total de ventas por mes e incluirlo en una vista tipo CardView.
+		> Al hacer click sobre un mes deberá mostrar el detalle de ventas.
+	
+	En modo portrait los botones tendrán una configuración de 3 filas x 1 columna. En modo landscape
+	los botones tendrán una configuración de 1fila x 3 columnas.
+
+}
+	
